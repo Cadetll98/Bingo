@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-// URL of your server from .env.local
-const SERVER_URL = process.env.REACT_APP_SERVER_URL;
-
 function App() {
   const [board, setBoard] = useState([]);
 
   // On mount, fetch existing or generate anew on server
   useEffect(() => {
-    fetch(`${SERVER_URL}/board`)
+    fetch('/.netlify/functions/getBoard')
       .then(res => res.json())
       .then(setBoard)
       .catch(err => console.error('Fetch board failed:', err));
@@ -39,7 +36,7 @@ function App() {
     setBoard(updated);
 
     // persist to server
-    fetch(`${SERVER_URL}/board`, {
+    fetch('/.netlify/functions/postBoard', { 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updated)
