@@ -7,8 +7,14 @@ const {
   const bucket = process.env.S3_BUCKET;
   const key    = 'board.json';
   
-  const s3 = new S3Client({});
-  
+  const s3 = new S3Client({
+    region: process.env.MY_AWS_REGION,
+    credentials: {
+      accessKeyId: process.env.MY_AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.MY_AWS_SECRET_ACCESS_KEY,
+    }
+  });
+    
   exports.handler = async function (event) {
     if (event.httpMethod !== 'POST') {
       return { statusCode: 405, body: 'Method Not Allowed' };
