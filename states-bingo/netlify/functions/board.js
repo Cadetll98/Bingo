@@ -1,4 +1,4 @@
-// netlify/functions/lib/board.js
+// netlify/functions/board.js
 const ALL_STATES = [
     "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA",
     "KS","KY","LA","ME","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM",

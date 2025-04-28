@@ -4,7 +4,7 @@ const {
     GetObjectCommand,
     PutObjectCommand
   } = require('@aws-sdk/client-s3');
-  const { generateBoard, streamToString } = require('./lib/board');
+  const { generateBoard, streamToString } = require('./board');
   
   const bucket = process.env.S3_BUCKET;
   const key    = 'board.json';
